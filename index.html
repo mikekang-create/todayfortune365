@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f6f3">
+  <title>오늘운세365</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="fortune-card" aria-labelledby="page-title">
+      <header class="page-header">
+        <h1 id="page-title">오늘운세365</h1>
+        <p class="eyebrow">매일 만나는 작은 힌트</p>
+        <p class="intro">오늘의 운세를 확인해 보세요</p>
+        <p class="today-date" id="today-date" aria-live="polite"></p>
+      </header>
+
+      <form id="fortune-form" novalidate>
+        <div class="form-field">
+          <label for="name">이름</label>
+          <input id="name" name="name" type="text" placeholder="이름을 입력해 주세요" autocomplete="name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="birthdate">생년월일</label>
+          <input id="birthdate" name="birthdate" type="date" required>
+        </div>
+
+        <fieldset class="form-field gender-field">
+          <legend>성별</legend>
+          <div class="gender-options">
+            <label class="radio-option"><input type="radio" name="gender" value="여성" required><span>여성</span></label>
+            <label class="radio-option"><input type="radio" name="gender" value="남성"><span>남성</span></label>
+            <label class="radio-option"><input type="radio" name="gender" value="선택 안 함"><span>선택 안 함</span></label>
+          </div>
+        </fieldset>
+
+        <button class="submit-button" type="submit">오늘의 운세 보기 <span aria-hidden="true">→</span></button>
+        <p class="form-message" id="form-message" role="alert" aria-live="polite"></p>
+      </form>
+
+      <section class="result" id="fortune-result" aria-live="polite" aria-labelledby="result-heading" hidden>
+        <header class="result-header">
+          <p class="result-label">오늘의 운세</p>
+          <h2 id="result-heading"></h2>
+        </header>
+
+        <article class="fortune-item overall-item">
+            <h3><span class="fortune-icon" aria-hidden="true">🌿</span>종합운</h3>
+            <span class="fortune-stars" aria-hidden="true">★★★★☆</span>
+            <p id="overall-text"></p>
+        </article>
+
+        <div class="fortune-grid">
+          <article class="fortune-item">
+            <h3><span class="fortune-icon" aria-hidden="true">💰</span>재물운</h3>
+            <span class="fortune-stars" aria-hidden="true">★★★★☆</span>
+            <p id="money-text"></p>
+          </article>
+          <article class="fortune-item">
+            <h3><span class="fortune-icon" aria-hidden="true">💚</span>애정운</h3>
+            <span class="fortune-stars" aria-hidden="true">★★★★☆</span>
+            <p id="love-text"></p>
+          </article>
+          <article class="fortune-item">
+            <h3><span class="fortune-icon" aria-hidden="true">💼</span>직장·사업운</h3>
+            <span class="fortune-stars" aria-hidden="true">★★★★☆</span>
+            <p id="work-text"></p>
+          </article>
+          <article class="fortune-item">
+            <h3><span class="fortune-icon" aria-hidden="true">🌱</span>건강운</h3>
+            <span class="fortune-stars" aria-hidden="true">★★★★☆</span>
+            <p id="health-text"></p>
+          </article>
+          <article class="fortune-item">
+            <h3><span class="fortune-icon" aria-hidden="true">🤝</span>대인관계운</h3>
+            <span class="fortune-stars" aria-hidden="true">★★★★☆</span>
+            <p id="people-text"></p>
+          </article>
+        </div>
+
+        <section class="luck-panel" aria-label="오늘의 행운 정보">
+          <h3><span aria-hidden="true">🍀</span>오늘의 행운</h3>
+          <dl class="luck-list">
+            <div><dt><span aria-hidden="true">🍀</span> 행운 숫자</dt><dd id="lucky-number"></dd></div>
+            <div><dt><span aria-hidden="true">🎨</span> 행운 색상</dt><dd id="lucky-color"></dd></div>
+            <div><dt><span aria-hidden="true">🧭</span> 행운 방향</dt><dd id="lucky-direction"></dd></div>
+          </dl>
+        </section>
+
+        <section class="message-card">
+          <p class="result-label">오늘의 한마디</p>
+          <p id="daily-message"></p>
+        </section>
+        <p class="result-note">오늘운세365의 운세는 재미와 참고를 위한 콘텐츠입니다.</p>
+        <div class="result-actions">
+          <button class="action-button copy-button" id="copy-button" type="button">📋 운세 결과 복사</button>
+          <button class="action-button share-button" id="share-button" type="button">📤 운세 공유하기</button>
+        </div>
+        <p class="action-message" id="action-message" role="status" aria-live="polite"></p>
+        <button class="retry-button" id="retry-button" type="button">다시 운세 보기</button>
+      </section>
+    </section>
+    <footer class="page-footer">오늘도 좋은 하루 보내세요.</footer>
+  </main>
+</body>
+</html>
